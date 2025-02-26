@@ -33,7 +33,7 @@ const Thump = () => {
       ))}
 
       {open && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-70">
+        <div className="fixed inset-0 flex items-center justify-center bg-transparent bg-opacity-70">
           <div className="relative w-[90%] md:w-[50%] bg-white p-4 rounded-lg shadow-lg">
             <button
               className=" px-2 py-1 mb-3 cursor-pointer bg-red-500 text-white rounded"
