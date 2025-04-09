@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import React from "react";
 import { useState } from "react";
 
@@ -26,8 +27,8 @@ const WhatsAppForm = () => {
 
     return (
         <div className="h-[75vh]">
-            <form onSubmit={handleSubmit} className="p-4 border rounded-lg shadow-md md:w-1/2 m-auto mt-3.5">
-                <div>
+            <form onSubmit={handleSubmit} className="p-4 border-none rounded-lg shadow-md md:w-1/2 m-auto mt-3.5">
+                <motion.div initial={{ opacity: 0, x: -100 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 1, delay: 0 }}>
                     <label>Name:</label>
                     <input
                         type="text"
@@ -36,10 +37,10 @@ const WhatsAppForm = () => {
                         value={formData.name}
                         onChange={handleChange}
                         required
-                        className="border p-2 w-full"
+                        className="border-none p-2 w-full outline-amber-100"
                     />
-                </div>
-                <div>
+                </motion.div>
+                <motion.div initial={{ opacity: 0, x: -100 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 1, delay: 0.15 }}>
                     <label>Subject:</label>
                     <input
                         placeholder="What is booking reason!"
@@ -48,10 +49,10 @@ const WhatsAppForm = () => {
                         value={formData.subject}
                         onChange={handleChange}
                         required
-                        className="border p-2 w-full"
+                        className="border-none outline-amber-100 p-2 w-full"
                     />
-                </div>
-                <div>
+                </motion.div>
+                <motion.div initial={{ opacity: 0, x: -100 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 1, delay: 0.30 }}>
                     <label>Email:</label>
                     <input
                         type="email"
@@ -60,10 +61,10 @@ const WhatsAppForm = () => {
                         value={formData.email}
                         onChange={handleChange}
                         required
-                        className="border p-2 w-full"
+                        className="border-none outline-amber-100 p-2 w-full"
                     />
-                </div>
-                <div>
+                </motion.div>
+                <motion.div initial={{ opacity: 0, x: -100 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 1, delay: 0.45 }}>
                     <label>Message:</label>
                     <textarea
                         name="message"
@@ -71,12 +72,12 @@ const WhatsAppForm = () => {
                         value={formData.message}
                         onChange={handleChange}
                         required
-                        className="border p-2 w-full"
+                        className="border-none outline-amber-100 p-2 w-full"
                     />
-                </div>
-                <button type="submit" className="mt-3 bg-green-500 text-white p-2 rounded">
+                </motion.div>
+                <motion.button initial={{ opacity: 0, x: -100 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 1, delay: 0.60 }} type="submit" className="mt-3 bg-green-500 text-white p-2 rounded">
                     Send to WhatsApp
-                </button>
+                </motion.button>
             </form>
         </div>
     );

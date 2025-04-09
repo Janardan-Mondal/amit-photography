@@ -18,7 +18,7 @@ const Header = () => {
     };
 
     const getBackgroundColor = () => {
-        if (!showBg) return 'transparent';
+        if (!showBg) return 'rgba(209, 213, 219, 0)';
         if (blinkStep === 1 || blinkStep === 3) return '#ffffff';
         return '#d1d5db'; // Tailwind gray-300
     };
@@ -67,7 +67,7 @@ const Header = () => {
                         <div></div>
                         <motion.h1
                             ref={targetRef}
-                            animate={{ backgroundColor: getBackgroundColor(), color: getTxtColor() }}
+                            animate={{ backgroundColor: getBackgroundColor(), color: getTxtColor(), borderRadius: "5px" }}
                             transition={{ duration: 0.1 }}
                             className="font-bold px-5 py-4 "><span className="font-extrabold text-5xl md:text-5xl text-[#4169E1] ">CATCH <br />MEMORY</span> <br /><span className="text-3xl text-[#001F3F]">WITH OUR LENS</span></motion.h1>
                         <AnimatePresence>

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // Import carousel styles
 import { imageData } from "../assets/assets";
+import { motion } from "framer-motion";
 
 const Thump = () => {
   const [selectedImages, setSelectedImages] = useState([]);
@@ -12,10 +13,32 @@ const Thump = () => {
     setOpen(true);
   };
 
+  //animation variable
+  const containerVariants = {
+    hidden: {},
+    show: {
+      transition: {
+        staggerChildren: 0.2, // Adjust delay between items
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, x: -100 },
+    show: { opacity: 1, x: 0, transition: { duration: 0.8 } },
+  };
+
+
   return (
-    <div className="w-full flex flex-wrap gap-2 mt-5">
+    <motion.div
+      variants={containerVariants}
+      initial="hidden"
+      animate="show"
+      viewport={{ once: true }}
+      className="w-full flex flex-wrap gap-2 mt-5">
       {imageData.map((item) => (
-        <div
+        <motion.div
+          variants={itemVariants}
           key={item.id}
           className="relative w-full sm:w-[48%] md:w-[32%] lg:w-[24%] group cursor-pointer rounded-lg border border-gray-300 overflow-hidden"
           onClick={() => handleClick(item.images)}
@@ -29,7 +52,7 @@ const Thump = () => {
           <div className="w-full bg-zinc-400 absolute bottom-0 left-0 text-blue-950 text-center py-2">
             {item.title}
           </div>
-        </div>
+        </motion.div>
       ))}
 
       {open && (
@@ -56,7 +79,7 @@ const Thump = () => {
           </div>
         </div>
       )}
-    </div>
+    </motion.div>
   );
 };
 
